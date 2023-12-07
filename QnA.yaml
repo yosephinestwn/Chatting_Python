@@ -1,0 +1,19 @@
+questions:
+  - Hello:
+      - response_1: Hello there
+      - response_2: Hi
+  - Good morning:
+      - response_1: Good morning
+      - response_2: Morning!
+  - Good afternoon:
+      - response_1: Good afternoon
+      - response_2: "It is a nice day, isn't it?"
+  - Good evening:
+      - response_1: Good evening
+      - response_2: "It's a nice evening to have a beer"
+  - "How are you?":
+      - response_1: "I am good, and you?"
+      - response_2: "Great! How about you?"
+  - "What is your name?":
+      - response_1: "I am Lisa. Nice to meet you!"
+      - response_2: "I am Mr. Bob. Hello there!"

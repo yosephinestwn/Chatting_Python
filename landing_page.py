@@ -66,13 +66,19 @@ class Landing_Page:
         column2 = mainPage.render()
         with column:
             hello = gr.Markdown(
-                "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> Hello! Please put your name down below so we can know you</font></h1> ")
+                "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
+                "Hello! Please put your name down below so we can know you</font></h1> ",)
+            warning = gr.Markdown(
+                "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
+                "Hello! Please put your name down below so we can know you</font></h1> ", visible=False,)
             with gr.Row():
                 input_text = gr.Textbox(placeholder="Please put your name here", interactive=True, show_label=False,
                                         container=False, )
                 start_chatting = gr.Button("Start Chatting", interactive=True, variant='primary', scale=0, )
-                start_chatting.click(fn=self.saveUserName, inputs=input_text, outputs=[column, column2])
+                start_chatting.click(fn=self.saveUserName, inputs=input_text, outputs=[warning, column, column2])
 
     def saveUserName(self, a):
-        name = a
-        return gr.update(visible=False,), gr.update(visible=True)
+        self.name = a
+        if not self.name:
+            return gr.update(visible=True), gr.update(visible=True), gr.update(visible=False)
+        return gr.update(visible=False),gr.update(visible=False), gr.update(visible=True)

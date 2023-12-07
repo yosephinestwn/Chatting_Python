@@ -1,11 +1,15 @@
-
 import gradio as gr
 import random
 
+
 class MainPage():
     def render(self):
-        column = gr.Column(visible=False,)
+        from launch_page import Landing_Page
+        landingPage = Landing_Page()
+        column = gr.Column(visible=False, )
         with column:
             hello = gr.Markdown(
-                "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> Hello! </font></h1> ")
+                "<h1 style='text-align: center; margin-bottom: 1rem'> 🤖 Hello, " + landingPage.name + " </font></h1> ")
+            chatbot = gr.Chatbot()
+
         return column
