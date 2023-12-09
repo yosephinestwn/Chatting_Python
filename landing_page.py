@@ -3,7 +3,7 @@ from typing import Iterable
 import gradio as gr
 from gradio.themes.base import Base
 from gradio.themes.utils import colors, fonts, sizes
-from main_page import MainPage
+import main_page
 
 
 class Custom(Base):
@@ -57,41 +57,49 @@ class Custom(Base):
         )
 
 
-class Landing_Page:
+def saveUserName(a):
+    if not a:
+        markdown = gr.Markdown(
+            "<h1 style='text-align: center; margin-bottom: 1rem'><font size='20'> 🤖 Hello, User!</font></h1> ")
+        return gr.update(visible=True), gr.update(visible=True), gr.update(visible=True), gr.update(visible=False), \
+            gr.update(visible=False), gr.update(visible=False), markdown
+    else:
+        markdown = gr.Markdown(
+            "<h1 style='text-align: center; margin-bottom: 1rem'><font size='20'> 🤖 Hello, " + a + "! <br> "
+                                                                                                   "You can now use "
+                                                                                                   "the chatbot. Have "
+                                                                                                   "fun!</font></h1> ")
+        return gr.update(visible=False), gr.update(visible=False), gr.update(visible=False), gr.update(
+            visible=True), \
+            gr.update(visible=True), gr.update(visible=True), markdown
 
 
-    def renderDesign(self):
-        mainPage = MainPage()
-        firstRow = gr.Row()
-        with firstRow:
-            with gr.Column():
-                hello = gr.Markdown(
-                    "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
-                    "Hello! Please put your name down below so we can know you</font></h1> ", )
-                warning = gr.Markdown(
-                    "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
-                    "Hello! Please put your name down below so we can know you</font></h1> ", visible=False, )
+def renderDesign():
+    firstRow = gr.Row()
+    with firstRow:
+        with gr.Column():
+            hello = gr.Markdown(
+                "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
+                "Hello! Please put your name down below so we can know you</font></h1> ", )
+            warning = gr.Markdown("<h1 style='text-align: center; margin-bottom: 1rem'><span "
+                                                  "style='color:red'> Please enter your name "
+                                                  "</span></h1><br>",
+                                                  visible=False, )
 
-        secondRow = gr.Row()
-        with secondRow:
-            input_text = gr.Textbox(placeholder="Please put your name here", interactive=True, show_label=False,
-                                    container=False, )
-            start_chatting = gr.Button("Start Chatting", interactive=True, variant='primary', scale=0, )
+    secondRow = gr.Row()
+    with secondRow:
+        input_text = gr.Textbox(placeholder="Please put your name here", interactive=True, show_label=False,
+                                container=False, max_lines=1)
+        start_chatting = gr.Button("Start Chatting", interactive=True, variant='primary', scale=0, )
 
-        thirdRow = gr.Row(visible=False)
-        with thirdRow:
-            hello = gr.Markdown()
-        fourthRow = mainPage.render()
-        start_chatting.click(fn=self.saveUserName, inputs=input_text, outputs=[warning, firstRow, secondRow, thirdRow, fourthRow, hello])
+    thirdRow = gr.Row(visible=False)
+    with thirdRow:
+        hidden = gr.Markdown()
+    hiddenPage = main_page.render()
+    fourthRow = hiddenPage[0]
+    fifthRow = hiddenPage[1]
+    start_chatting.click(fn=saveUserName, inputs=input_text, outputs=[warning, firstRow, secondRow, thirdRow,
+                                                                      fourthRow, fifthRow, hidden])
 
-    def saveUserName(self, a):
-        if not a:
-            markdown = gr.Markdown(
-                "<h1 style='text-align: center; margin-bottom: 1rem'> 🤖 Hello, " + a + " </font></h1> ")
-            return gr.update(visible=True), gr.update(visible=True), gr.update(visible=True), gr.update(visible=False), gr.update(visible=False), markdown
-        else:
-            markdown = gr.Markdown(
-                "<h1 style='text-align: center; margin-bottom: 1rem'> 🤖 Hello, " + a + " </font></h1> ")
-            return gr.update(visible=False), gr.update(visible=False), gr.update(visible=False), gr.update(visible=True), gr.update(visible=True), markdown
 
 

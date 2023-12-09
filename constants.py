@@ -25,9 +25,12 @@ for q in QUESTIONS_CONFIGS['questions']:
 def automaticAnswer(question):
     answer = "Hey, what can I do for you?"
     index = 0
+    if question is None:
+        return answer
+
     for qe in QUESTIONS_CONFIGS['questions']:
         string1 = str(qe.keys())
-        splitted1= string1.split("'")[1]
+        splitted1 = string1.split("'")[1]
         if splitted1 == question:
             randomNumber = random.randint(0, 1)
             if randomNumber == 0:
@@ -36,5 +39,3 @@ def automaticAnswer(question):
                 answer = QUESTIONS_CONFIGS['questions'][index][splitted1][1]['response_2']
         index = index + 1
     return answer
-
-

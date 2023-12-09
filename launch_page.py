@@ -1,9 +1,8 @@
 import gradio as gr
-from landing_page import Custom, Landing_Page
+import landing_page
 
 
-with gr.Blocks(theme=Custom()) as demo:
-    landingPage = Landing_Page()
-    landingPage.renderDesign()
+with gr.Blocks(theme=landing_page.Custom()) as demo:
+    landing_page.renderDesign()
   
 demo.launch()
