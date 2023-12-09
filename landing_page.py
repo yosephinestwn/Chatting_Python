@@ -10,9 +10,9 @@ class Custom(Base):
     def __init__(
             self,
             *,
-            primary_hue: colors.Color | str = colors.stone,
-            secondary_hue: colors.Color | str = colors.stone,
-            neutral_hue: colors.Color | str = colors.stone,
+            primary_hue: colors.Color | str = colors.gray,
+            secondary_hue: colors.Color | str = colors.gray,
+            neutral_hue: colors.Color | str = colors.gray,
             spacing_size: sizes.Size | str = sizes.spacing_lg,
             radius_size: sizes.Size | str = sizes.radius_md,
             text_size: sizes.Size | str = sizes.text_lg,
@@ -66,10 +66,10 @@ def saveUserName(a):
             gr.update(visible=False), gr.update(visible=False), markdown
     else:
         markdown = gr.Markdown(
-            "<h1 style='text-align: center; margin-bottom: 1rem'><font size='20'> 🤖 Hello, " + a + "! <br> "
-                                                                                                   "You can now use "
-                                                                                                   "the chatbot. Have "
-                                                                                                   "fun!</font></h1> ")
+            "<h1 style='text-align: center; margin-bottom: 1rem'>Hello, " + a + "! <br> "
+                                                                                "You can now use "
+                                                                                "the chatbot. Have "
+                                                                                "fun!</h1> ")
         return gr.update(visible=False), gr.update(visible=False), gr.update(visible=False), gr.update(
             visible=True), \
             gr.update(visible=True), gr.update(visible=True), markdown
@@ -83,9 +83,9 @@ def renderDesign():
                 "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
                 "Hello! Please put your name down below so we can know you</font></h1> ", )
             warning = gr.Markdown("<h1 style='text-align: center; margin-bottom: 1rem'><span "
-                                                  "style='color:red'> Please enter your name "
-                                                  "</span></h1><br>",
-                                                  visible=False, )
+                                  "style='color:red'> Please enter your name "
+                                  "</span></h1><br>",
+                                  visible=False, )
 
     secondRow = gr.Row()
     with secondRow:
@@ -101,6 +101,3 @@ def renderDesign():
     fifthRow = hiddenPage[1]
     start_chatting.click(fn=saveUserName, inputs=input_text, outputs=[warning, firstRow, secondRow, thirdRow,
                                                                       fourthRow, fifthRow, hidden])
-
-
-

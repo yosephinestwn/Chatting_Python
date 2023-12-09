@@ -13,7 +13,7 @@ def respond(message, chat_history):
 def render():
     firstRow = gr.Row(visible=False)
     with firstRow:
-        chatbot = gr.Chatbot(height=800)
+        chatbot = gr.Chatbot(height=680)
     secondRow = gr.Row(visible=False)
     with secondRow:
         with gr.Column():
