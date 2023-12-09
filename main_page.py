@@ -1,15 +1,15 @@
 import gradio as gr
-import random
 
+from Globals import Globals
 
-class MainPage():
+NAME = Globals("No")
+
+class MainPage:
+
     def render(self):
-        from launch_page import Landing_Page
-        landingPage = Landing_Page()
-        column = gr.Column(visible=False, )
-        with column:
-            hello = gr.Markdown(
-                "<h1 style='text-align: center; margin-bottom: 1rem'> 🤖 Hello, " + landingPage.name + " </font></h1> ")
+        firstRow = gr.Row(visible=False)
+        with firstRow:
             chatbot = gr.Chatbot()
+        return firstRow
 
-        return column
+

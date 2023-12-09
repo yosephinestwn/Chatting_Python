@@ -58,27 +58,40 @@ class Custom(Base):
 
 
 class Landing_Page:
-    name = 0
+
 
     def renderDesign(self):
-        column = gr.Column()
         mainPage = MainPage()
-        column2 = mainPage.render()
-        with column:
-            hello = gr.Markdown(
-                "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
-                "Hello! Please put your name down below so we can know you</font></h1> ",)
-            warning = gr.Markdown(
-                "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
-                "Hello! Please put your name down below so we can know you</font></h1> ", visible=False,)
-            with gr.Row():
-                input_text = gr.Textbox(placeholder="Please put your name here", interactive=True, show_label=False,
-                                        container=False, )
-                start_chatting = gr.Button("Start Chatting", interactive=True, variant='primary', scale=0, )
-                start_chatting.click(fn=self.saveUserName, inputs=input_text, outputs=[warning, column, column2])
+        firstRow = gr.Row()
+        with firstRow:
+            with gr.Column():
+                hello = gr.Markdown(
+                    "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
+                    "Hello! Please put your name down below so we can know you</font></h1> ", )
+                warning = gr.Markdown(
+                    "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
+                    "Hello! Please put your name down below so we can know you</font></h1> ", visible=False, )
+
+        secondRow = gr.Row()
+        with secondRow:
+            input_text = gr.Textbox(placeholder="Please put your name here", interactive=True, show_label=False,
+                                    container=False, )
+            start_chatting = gr.Button("Start Chatting", interactive=True, variant='primary', scale=0, )
+
+        thirdRow = gr.Row(visible=False)
+        with thirdRow:
+            hello = gr.Markdown()
+        fourthRow = mainPage.render()
+        start_chatting.click(fn=self.saveUserName, inputs=input_text, outputs=[warning, firstRow, secondRow, thirdRow, fourthRow, hello])
 
     def saveUserName(self, a):
-        self.name = a
-        if not self.name:
-            return gr.update(visible=True), gr.update(visible=True), gr.update(visible=False)
-        return gr.update(visible=False),gr.update(visible=False), gr.update(visible=True)
+        if not a:
+            markdown = gr.Markdown(
+                "<h1 style='text-align: center; margin-bottom: 1rem'> 🤖 Hello, " + a + " </font></h1> ")
+            return gr.update(visible=True), gr.update(visible=True), gr.update(visible=True), gr.update(visible=False), gr.update(visible=False), markdown
+        else:
+            markdown = gr.Markdown(
+                "<h1 style='text-align: center; margin-bottom: 1rem'> 🤖 Hello, " + a + " </font></h1> ")
+            return gr.update(visible=False), gr.update(visible=False), gr.update(visible=False), gr.update(visible=True), gr.update(visible=True), markdown
+
+

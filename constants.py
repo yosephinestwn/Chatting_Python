@@ -23,7 +23,7 @@ for q in QUESTIONS_CONFIGS['questions']:
 
 
 def automaticAnswer(question):
-    answer = "Hey"
+    answer = "Hey, what can I do for you?"
     index = 0
     for qe in QUESTIONS_CONFIGS['questions']:
         string1 = str(qe.keys())
