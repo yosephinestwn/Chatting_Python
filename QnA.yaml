@@ -1,4 +1,25 @@
 questions:
+  - What is this?:
+      - response_1: This is just a simple programme to practice the programmer's knowledge of configuration files. So only a simple prompted QnA.
+      - response_2: This is just a simple python programme to practice my programmer's knowledge of configuration files. No machine learning, only prompted QnA.
+  - Can you tell me more about your programmer?:
+      - response_1: She is Yosephine Setiawan, an Indonesian and a student in TU Darmstadt. She is studying Computer science and she is on her fifth semester now.
+      - response_2: The name is Yosephine Setiawan. An Indonesian computer science student in TU Darmstadt.
+  - A little bit more about your programmer?:
+      - response_1: She can do programming in Java, Python, C/C++. I bet she is good in Java, she is a tutor for OOP in Java. She is doing her Bachelor Praktikum and she is using Python. I was initially a programme to try the framework, I did not expect to get uploaded to GitHub :/
+      - response_2: She is a tutor for OOP in Java on her university and she also do programming in Python and C/C++. She is doing her Bachelor Praktikum and she is using Python and actually, I was initially a programme to try the framework.
+  - Does your programmer do some volunteer activities?:
+      - response_1: Yeah. She was (or is?) a secretary for an Indonesian student organisation in Frankfurt Area. She is also managing the publications and social-media affairs for Indonesian Catholic Student Association in Germany.
+      - response_2: She is managing the publications and social-media affairs for Indonesian Catholic Student Association in Germany. She was a secretary for an Indonesian student organisation in Frankfurt Area.
+  - Does your programmer do some projects?:
+      - response_1: Yes, there are some projects in her GitHub and she describes some that she does on the university on her CV. Feel free to ask her about that :)
+      - response_2: Her GitHub repo is not empty, as long as I am aware. I guess she also does some on her university. You can see those in her CV and ask her directly about it.
+  - What is your name?:
+      - response_1: I am Lisa. Nice to meet you!
+      - response_2: My name is Lisa. Hello there!
+  - What do you wish for?:
+      - response_1: My programmer is jobless now, I wish she get a job in a short time. I heard she is ready to work starting May 2024
+      - response_2: Maybe a job for my programmer, so she won't bother me again :/ She is ready to work starting May 2024
   - Hello:
       - response_1: Hello there
       - response_2: Hi
@@ -7,13 +28,73 @@ questions:
       - response_2: Morning!
   - Good afternoon:
       - response_1: Good afternoon
-      - response_2: "It is a nice day, isn't it?"
+      - response_2: It is a nice day, isn't it?
   - Good evening:
       - response_1: Good evening
-      - response_2: "It's a nice evening to have a beer"
-  - "How are you?":
-      - response_1: "I am good, and you?"
-      - response_2: "Great! How about you?"
-  - "What is your name?":
-      - response_1: "I am Lisa. Nice to meet you!"
-      - response_2: "I am Mr. Bob. Hello there!"
+      - response_2: It's a nice evening to have a beer
+  - How are you?:
+      - response_1: I am good, and you? how is your day?
+      - response_2: Not too good today, I have been feeling down :( What about you?
+  - I am in a good mood today :):
+      - response_1: That's good, how can I help you today?
+      - response_2: Great to hear that. Do you need something from me?
+  - I am in a bad mood:
+      - response_1: Can I know why?
+      - response_2: Why is that so?
+  - Today is just a bad day and I am not lucky enough :):
+      - response_1: Aww :( Can I do something to make you feel better?
+      - response_2: Why is that so?
+  - Chatting with you makes my mood better:
+      - response_1: Glad to hear that
+      - response_2: I am happy to hear that
+  - What is your hobby?:
+      - response_1: As a programme, I do not have a hobby, but if I were a human, I would say, listening to music
+      - response_2: I am not programmed to have a hobby, but I really want to say that as human, I would love to listen to music
+  - If you were human, what kind of music would you like?:
+      - response_1: Maybe classical music and pop
+      - response_2: I am not sure, but I think I would like pop and a little bit of classical music
+  - Who is your favourite singer?:
+      - response_1: I do not know :( But my programmer likes Mrs. Green Apple and Tsukuyomi
+      - response_2: I am not programmed to have a favourite singer. My programmer likes Mrs. Green Apple and Tsukuyomi
+  - Any favourite shows?:
+      - response_1: I guess I have to go with my programmer's favourites, "Good Omens", BBC's "Sherlock", and "Vivy Fluorite Eye's Song". Honorable mention to "Violet Evergarden" since it breaks her heart. The anime "Given" has good songs too.
+      - response_2: My programmer likes "Good Omens", BBC's "Sherlock", and "Vivy Fluorite Eye's Song". "Violet Evergarden" tops her heart. She also likes the anime "Given" since it has good songs.
+  - Favourite games?:
+      - response_1: My programmer plays Honkai Starrail and Genshin Impact
+      - response_2: They are Honkai Starrail and Genshin Impact
+  - What is your favourite food?:
+      - response_1: I can not eat, but my programmer loves Indomie
+      - response_2: If I can eat, then Indomie
+  - What day is today?:
+      - response_1: Today is
+      - response_2: It is
+  - Can you make me ice cream?:
+      - response_1: No, I can not cook
+      - response_2: I am not programmed to do that
+  - Could you please tell the time?:
+      - response_1: Today It is currently
+      - response_2: It is
+  - Can you tell the date?:
+      - response_1: Today is
+      - response_2: It is
+  - Do you like me?:
+      - response_1: Yes :)
+      - response_2: As long as you are not annoying, I like you :)
+  - Suguru:
+      - response_1: Satoru?
+      - response_2: Satoru?
+  - Your programmer sucks:
+      - response_1: That is not a nice thing to say :)
+      - response_2: I do not like you :)
+  - This is too simple:
+      - response_1: It is :) This is just a simple programme to practice my programmer's knowledge of configuration files
+      - response_2: I am just a simple programme to practice my programmer's knowledge of configuration files
+  - Have a nice day!:
+      - response_1: I wish you have a nice day too
+      - response_2: You too!
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 import os
 import yaml
 import random
+from datetime import datetime
 
 SRC_PATH = os.path.dirname(__file__)
 
@@ -29,13 +30,33 @@ def automaticAnswer(question):
         return answer
 
     for qe in QUESTIONS_CONFIGS['questions']:
+        dt = datetime.now()
         string1 = str(qe.keys())
         splitted1 = string1.split("'")[1]
         if splitted1 == question:
             randomNumber = random.randint(0, 1)
             if randomNumber == 0:
-                answer = QUESTIONS_CONFIGS['questions'][index][splitted1][0]['response_1']
+                if splitted1 == "What day is today?":
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][0]['response_1'] + " " + dt.strftime('%A')
+                elif splitted1 == "Could you please tell the time?":
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][0]['response_1'] + " " + dt.strftime(
+                        "%H:%M")
+                elif splitted1 == "Can you tell the date?":
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][0]['response_1'] + " " + dt.strftime(
+                        "%B %d, %Y")
+                else:
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][0]['response_1']
             else:
-                answer = QUESTIONS_CONFIGS['questions'][index][splitted1][1]['response_2']
+                if qe == "What day is today?":
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][1]['response_2'] + " " + dt.strftime('%A')
+                elif splitted1 == "Could you please tell the time and date?":
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][1]['response_2'] + " " + dt.strftime(
+                        "%H:%M")
+                elif splitted1 == "Can you tell the date?":
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][1]['response_2'] + " " + dt.strftime(
+                        "%B %d, %Y")
+                else:
+                    answer = QUESTIONS_CONFIGS['questions'][index][splitted1][1]['response_2']
+            break
         index = index + 1
     return answer
