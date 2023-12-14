@@ -3,7 +3,7 @@ import gradio as gr
 import constants
 
 
-def respond(message, chat_history):
+def respond(message, chat_history):  # A function for the chatbot, so the chatbot can reply the message
     botMessage = constants.automaticAnswer(message)
     chat_history.append((message, botMessage))
     time.sleep(2)
@@ -21,10 +21,7 @@ def render():
                 chooseResp = gr.Dropdown(choices=constants.QUESTIONS, interactive=True, show_label=False,
                                          container=False, )
                 submitButton = gr.Button("Submit", interactive=True, variant='primary', scale=0, )
-                clearButton = gr.ClearButton([chooseResp, chatbot],scale=0,variant='primary')
+                clearButton = gr.ClearButton([chooseResp, chatbot], scale=0, variant='primary')
                 submitButton.click(fn=respond, inputs=[chooseResp, chatbot], outputs=chatbot)
 
     return firstRow, secondRow
-
-
-
