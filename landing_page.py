@@ -1,3 +1,5 @@
+# This module is created for the landing page
+
 from __future__ import annotations
 from typing import Iterable
 import gradio as gr
@@ -6,7 +8,7 @@ from gradio.themes.utils import colors, fonts, sizes
 import main_page
 
 
-class Custom(Base):
+class Custom(Base):  # A class for custom theme for the app
     def __init__(
             self,
             *,
@@ -42,8 +44,8 @@ class Custom(Base):
             font_mono=font_mono,
         )
         super().set(
-            body_background_fill="linear-gradient(#988558, #C19A6B,#C2B280)",
-            body_background_fill_dark="linear-gradient(#080402, #0d0907, #28231d)",
+            body_background_fill="linear-gradient(#988558, #C19A6B,#C2B280)",  # Background light mode
+            body_background_fill_dark="linear-gradient(#080402, #0d0907, #28231d)",  # Background dark mode
             button_primary_background_fill="radial-gradient(#3f3a2b, #433f2e)",
             button_primary_background_fill_hover="radial-gradient(#2b281d, #302d21)",
             button_primary_text_color="white",
@@ -59,13 +61,13 @@ class Custom(Base):
         )
 
 
-def saveUserName(a):
-    if not a:
+def saveUserName(a):  # Function to save the username (for the input)
+    if not a:  # If the user does not give the input, then display a warning text
         markdown = gr.Markdown(
             "<h1 style='text-align: center; margin-bottom: 1rem'><font size='20'> 🤖 Hello, User!</font></h1> ")
         return gr.update(visible=True), gr.update(visible=True), gr.update(visible=True), gr.update(visible=False), \
             gr.update(visible=False), gr.update(visible=False), markdown
-    else:
+    else:  # Otherwise, display the main page and display the username on the main page
         markdown = gr.Markdown(
             "<h1 style='text-align: center; margin-bottom: 1rem'>Hello, " + a + "! <br> "
                                                                                 "You can now use "
@@ -77,28 +79,30 @@ def saveUserName(a):
 
 
 def renderDesign():
-    firstRow = gr.Row()
+    firstRow = gr.Row()  # Visible when the landing page is active, invisible when the main page is active
     with firstRow:
-        with gr.Column():
+        with gr.Column():  # Stack the components vertically
             hello = gr.Markdown(
                 "<br> <br> <br><br> <br><h1 style='text-align: center; margin-bottom: 1rem'> <font size='36'>🤖  <br> "
-                "Hello! Please put your name down below so we can know you</font></h1> ", )
+                "Hello! Please put your name down below so we can know you</font></h1> ", )  # Hello message
             warning = gr.Markdown("<h1 style='text-align: center; margin-bottom: 1rem'><span "
                                   "style='color:red'> Please enter your name "
                                   "</span></h1><br>",
-                                  visible=False, )
+                                  visible=False, )  # Warning message
 
     secondRow = gr.Row()
-    with secondRow:
+    with secondRow:  # Make the components side by side
         input_text = gr.Textbox(placeholder="Please put your name here", interactive=True, show_label=False,
-                                container=False, max_lines=1)
-        start_chatting = gr.Button("Start Chatting", interactive=True, variant='primary', scale=0, )
+                                container=False, max_lines=1)  # Input field for the username
+        start_chatting = gr.Button("Start Chatting", interactive=True, variant='primary',
+                                   scale=0, )  # Start chatting button
 
-    thirdRow = gr.Row(visible=False)
+    thirdRow = gr.Row(visible=False)  # It will be invisible if the landing page is still on display
     with thirdRow:
-        hidden = gr.Markdown()
-    hiddenPage = main_page.render()
+        hidden = gr.Markdown()  # Placeholder for the hello markdown for the main page
+    hiddenPage = main_page.render()  # Rendering the layout of the main page
     fourthRow = hiddenPage[0]
     fifthRow = hiddenPage[1]
+    # Event listener for the start chatting button if the button is clicked
     start_chatting.click(fn=saveUserName, inputs=input_text, outputs=[warning, firstRow, secondRow, thirdRow,
                                                                       fourthRow, fifthRow, hidden])
