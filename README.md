@@ -6,12 +6,12 @@ Hello! This is my first Python project and I use the gradio framework for this. 
 
 ### Run on HuggingFace
 
-1. For this, also host my project in HuggingFace and you can access it on: 
-2. Just go to the URL above and 
+1. For this, also host my project in HuggingFace and you can access it on: https://huggingface.co/spaces/yosephinestwn/Chatting_python
+2. Just go to the URL above and choose the "App" option on upper right bar
 3. Enjoy your time trying it ;)
 
 ### Run on your local devices
-1. If you want to run it on your local device, please run the file "launch_page.py"
+1. If you want to run it on your local device, please run the file "app.py"
 2. Your console will give you a URL and you can only access this URL on your device
 3. Enjoy your time trying it ;)
 
