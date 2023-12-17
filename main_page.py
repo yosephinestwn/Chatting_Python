@@ -5,7 +5,7 @@ import gradio as gr
 import constants
 
 
-def respond(message, chat_history):  # A function for the chatbot, so the chatbot can reply the message
+def __respond(message, chat_history):  # A function for the chatbot, so the chatbot can reply the message
     botMessage = constants.automaticAnswer(message)  # Calling the function in constants to create an automatic respond
     chat_history.append((message, botMessage))  # Display the dialogue on the chat panel
     time.sleep(2)  # Create a small delay
@@ -24,7 +24,7 @@ def render():  # Render the main page
                                          container=False, )  # User prompted reply
                 submitButton = gr.Button("Submit", interactive=True, variant='primary', scale=0, )  # Submit button
                 clearButton = gr.ClearButton([chooseResp, chatbot], scale=0, variant='primary')  # Clear button
-                submitButton.click(fn=respond, inputs=[chooseResp, chatbot], outputs=chatbot)  # Event listener if the
+                submitButton.click(fn=__respond, inputs=[chooseResp, chatbot], outputs=chatbot)  # Event listener if the
                 # button is clicked
 
     return firstRow, secondRow

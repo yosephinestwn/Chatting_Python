@@ -61,7 +61,7 @@ class Custom(Base):  # A class for custom theme for the app
         )
 
 
-def saveUserName(a):  # Function to save the username (for the input)
+def __saveUserName(a):  # Function to save the username (for the input)
     if not a:  # If the user does not give the input, then display a warning text
         markdown = gr.Markdown(
             "<h1 style='text-align: center; margin-bottom: 1rem'><font size='20'> 🤖 Hello, User!</font></h1> ")
@@ -104,5 +104,5 @@ def renderDesign():
     fourthRow = hiddenPage[0]
     fifthRow = hiddenPage[1]
     # Event listener for the start chatting button if the button is clicked
-    start_chatting.click(fn=saveUserName, inputs=input_text, outputs=[warning, firstRow, secondRow, thirdRow,
+    start_chatting.click(fn=__saveUserName, inputs=input_text, outputs=[warning, firstRow, secondRow, thirdRow,
                                                                       fourthRow, fifthRow, hidden])
