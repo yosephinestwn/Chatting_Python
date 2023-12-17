@@ -1,7 +1,7 @@
 ## Description
 
 Hello! This is my first Python project and I use the gradio framework for this. You will know more about this project, when you try this project on your own. This is a project, where I make an 'imitation' of a prompted Chatbot. I initially make this project as a framework testing for my Bachelor Project, where I can try to use all the components and features in Gradio, and finally I decided to post this into my GitHub. So, this project is just for fun :) I hope you can enjoy 'chatting' with the bot.
-To see the code, changelog, and documentation of thi project, please check out my GitHub under: https://github.com/yosephinestwn 
+To see the code, changelog, and documentation of this project, please check out my GitHub under: https://github.com/yosephinestwn 
 
 ## How to run this project?
 
