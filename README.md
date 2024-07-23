@@ -12,6 +12,9 @@ To see the code, changelog, and documentation of this project, please check out 
 3. Enjoy your time trying it ;)
 4. I use this HuggingFace platform just purely to host my application, so if you want to see the details of my project, please refer to my GitHub
 
+Note: Sometimes, viewing the project via HuggingFace does not work. I am using the free HuggingFace, and it has limited storage and I have to rerun the project again every few days. 
+Often, I forget to rerun it :) I am sorry if it does not work on HuggingFace. In this case, I would advise you to run the project localy on your device 
+
 ### Run on your local devices
 1. If you want to run it on your local device, please run the file "app.py"
 2. Your console will give you a URL and you can only access this URL on your device
